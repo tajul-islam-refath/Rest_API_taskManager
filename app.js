@@ -29,4 +29,10 @@ const limits = rateLimiter({
 
 app.use(limits);
 
+// import router
+const router = require("./src/routes/index");
+
+// implementation router
+app.use("/api/v1", router);
+
 module.exports = app;
