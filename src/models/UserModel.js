@@ -12,7 +12,7 @@ const userSchema = new Schema(
     photo: { type: String },
     password: { type: String },
   },
-  { timeStamp: true }
+  { timestamps: true }
 );
 
 const User = model("User", userSchema);

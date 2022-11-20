@@ -1,4 +1,4 @@
-const { Schema, model, model } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const taskSchema = new Schema(
   {
@@ -7,7 +7,7 @@ const taskSchema = new Schema(
     status: { type: String, Default: "New" },
     email: { type: String },
   },
-  { timeStamp: true }
+  { timestamps: true }
 );
 
 const Task = model("Task", taskSchema);

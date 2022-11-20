@@ -54,7 +54,7 @@ exports.login = async (req, res, next) => {
     }
 
     let playload = {
-      exp: Math.floor(Date.now() / 1000) + 60 * 60,
+      exp: Math.floor(Date.now() / 1000) + 60 * 60 * 60,
       data: user[0]["email"],
     };
 
