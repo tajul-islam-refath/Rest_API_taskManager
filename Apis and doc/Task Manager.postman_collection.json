@@ -1,0 +1,349 @@
+{
+	"info": {
+		"_postman_id": "0339a16d-4d01-4376-b938-4db5c77dd4f5",
+		"name": "Task Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22821036"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"tajul16-447@diu.edu.bd\",\r\n    \"firstName\":\"Tajul Islam\",\r\n    \"lastName\":\"Refath\",\r\n    \"mobile\":\"00000000000\",\r\n    \"photo\":\"\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/user/register",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"tajul16-447@diu.edu.bd\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/user/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Tajul Islam\",\r\n    \"lastName\":\"Refath\",\r\n    \"mobile\":\"00000000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/user/update",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RecoverVerifyEmail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/RecoverVerifyEmail/tajul16-447@diu.edu.bd",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"RecoverVerifyEmail",
+								"tajul16-447@diu.edu.bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RecoverVerifyOTP",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/RecoverVerifyOTP/tajul16-447@diu.edu.bd/502930",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"RecoverVerifyOTP",
+								"tajul16-447@diu.edu.bd",
+								"502930"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RecoverResetPass",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"tajul16-447@diu.edu.bd\",\r\n    \"OTP\":\"502930\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/RecoverResetPass",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"RecoverResetPass"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"New Task 5\",\r\n    \"description\":\"description for new task\",\r\n    \"status\" :\"New\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/task/create",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"task",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/task/delete/637a59a99156a79886d153a4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"task",
+								"delete",
+								"637a59a99156a79886d153a4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/task/update/637a598b9156a79886d1539a/Completed",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"task",
+								"update",
+								"637a598b9156a79886d1539a",
+								"Completed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List by status",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/task/listTaskByStatus/New",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"task",
+								"listTaskByStatus",
+								"New"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task count by status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/task/taskCountByStatus",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"task",
+								"taskCountByStatus"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:5000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzAxNzA1MTEsImRhdGEiOiJ0YWp1bDE2LTQ0N0BkaXUuZWR1LmJkIiwiaWF0IjoxNjY5OTU0NTExfQ.hjE8zJvPpFrD1K9GFvu3SnWSog_-_TEGfxu5rACTBiI",
+			"type": "string"
+		}
+	]
+}

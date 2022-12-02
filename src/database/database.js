@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 
 const connectDatabase = () => {
-  const url = "mongodb://localhost:27017/task_manager";
+  let dbName = process.env.DB_NAME;
+  let dbPass = process.env.DB_PASS;
+  const url = `mongodb+srv://${dbName}:${dbPass}@cluster0.ltldm.mongodb.net/task_manager?retryWrites=true&w=majority`;
   const config = {
     useNewUrlParser: true,
     useUnifiedTopology: true,

@@ -5,6 +5,9 @@ const {
   register,
   login,
   updateProfile,
+  RecoverVerifyEmail,
+  RecoverVerifyOTP,
+  RecoverResetPass,
 } = require("../controllers/UserController");
 const {
   createTask,
@@ -21,6 +24,10 @@ const authVerifyMiddleware = require("../middleware/AuthVerifyMiddleware");
 router.post("/user/register", register);
 router.post("/user/login", login);
 router.post("/user/update", authVerifyMiddleware, updateProfile);
+
+router.get("/RecoverVerifyEmail/:email", RecoverVerifyEmail);
+router.get("/RecoverVerifyOTP/:email/:otp", RecoverVerifyOTP);
+router.post("/RecoverResetPass", RecoverResetPass);
 
 // task router
 router.post("/task/create", authVerifyMiddleware, createTask);
