@@ -92,7 +92,7 @@ exports.updateProfile = async (req, res, next) => {
 };
 
 exports.profileDetails = async (req, res) => {
-  let email = req.headers["email"];
+  let email = req.email;
   try {
     let data = await User.aggregate([
       { $match: { email: email } },
@@ -104,12 +104,13 @@ exports.profileDetails = async (req, res) => {
           lastName: 1,
           mobile: 1,
           photo: 1,
-          password: 0,
         },
       },
     ]);
+
     res.status(200).json({ status: "success", data: data });
   } catch (err) {
+    console.log(err);
     res.status(400).json({ status: "fail", data: err });
   }
 };

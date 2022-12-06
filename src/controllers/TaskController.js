@@ -73,7 +73,7 @@ exports.listTaskByStatus = async (req, res, next) => {
 
     res.status(200).json({
       success: "success",
-      tasks,
+      data: tasks,
     });
   } catch (err) {
     res.status(400).json({ message: err.message, status: "fail" });

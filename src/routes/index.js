@@ -5,6 +5,7 @@ const {
   register,
   login,
   updateProfile,
+  profileDetails,
   RecoverVerifyEmail,
   RecoverVerifyOTP,
   RecoverResetPass,
@@ -21,9 +22,10 @@ const {
 const authVerifyMiddleware = require("../middleware/AuthVerifyMiddleware");
 
 // user router
-router.post("/user/register", register);
+router.post("/user/registration", register);
 router.post("/user/login", login);
 router.post("/user/update", authVerifyMiddleware, updateProfile);
+router.get("/user/profileDetails", authVerifyMiddleware, profileDetails);
 
 router.get("/RecoverVerifyEmail/:email", RecoverVerifyEmail);
 router.get("/RecoverVerifyOTP/:email/:otp", RecoverVerifyOTP);
